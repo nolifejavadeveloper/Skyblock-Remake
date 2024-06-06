@@ -1,5 +1,6 @@
 package net.dungeons.item;
 
+import net.dungeons.item.enchant.Enchantment;
 import net.dungeons.player.DungeonsPlayer;
 import net.dungeons.reforge.IReforge;
 import net.dungeons.stats.SkyblockStats;
@@ -24,6 +25,7 @@ public class SItemInstance implements SItem {
     public boolean unique;
     public UUID uuid;
     public byte stars;
+    public List<Enchantment> enchantments;
 
 
     @Override
@@ -99,5 +101,10 @@ public class SItemInstance implements SItem {
     @Override
     public byte getStars(DungeonsPlayer player, SItemInstance use) {
         return baseItem.getStars(player, this);
+    }
+
+    @Override
+    public List<Enchantment> getEnchantments(DungeonsPlayer player, SItemInstance use) {
+        return this.baseItem.getEnchantments(player, this);
     }
 }

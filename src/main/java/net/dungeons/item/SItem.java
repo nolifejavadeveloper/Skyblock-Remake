@@ -1,5 +1,6 @@
 package net.dungeons.item;
 
+import net.dungeons.item.enchant.Enchantment;
 import net.dungeons.player.DungeonsPlayer;
 import net.dungeons.reforge.IReforge;
 import net.dungeons.stats.SkyblockStats;
@@ -29,4 +30,5 @@ public interface SItem extends Serializable {
     boolean isUnique(SItemInstance use);
     UUID getUUID();
     byte getStars(DungeonsPlayer player, SItemInstance use);
+    List<Enchantment> getEnchantments(DungeonsPlayer player, SItemInstance use);
 }

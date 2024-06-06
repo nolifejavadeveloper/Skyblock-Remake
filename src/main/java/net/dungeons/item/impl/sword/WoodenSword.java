@@ -4,6 +4,8 @@ import com.google.common.collect.Lists;
 import net.dungeons.item.ItemRarity;
 import net.dungeons.item.SItem;
 import net.dungeons.item.SItemInstance;
+import net.dungeons.item.enchant.Enchantment;
+import net.dungeons.item.enchant.impl.SharpnessEnchant;
 import net.dungeons.player.DungeonsPlayer;
 import net.dungeons.reforge.IReforge;
 import net.dungeons.stats.SkyblockStats;
@@ -12,6 +14,7 @@ import net.dungeons.util.Stringify;
 import org.bukkit.Color;
 import org.bukkit.Material;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -121,5 +124,12 @@ public class WoodenSword implements SItem {
         if (use == null)
             return 10;
         return use.stars;
+    }
+
+    @Override
+    public List<Enchantment> getEnchantments(DungeonsPlayer player, SItemInstance use) {
+        if (use == null)
+            return Arrays.asList(new SharpnessEnchant(7));
+        return use.enchantments;
     }
 }
