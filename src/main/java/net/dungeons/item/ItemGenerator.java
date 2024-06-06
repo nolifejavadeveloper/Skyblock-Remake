@@ -44,7 +44,7 @@ public class ItemGenerator {
             components.add(Stringify.create("&6Gear Score: &d" + GearScore.getGearScore(instance, player)));
         }
 
-        components.addAll()
+        components.addAll(createStatLore(context));
     }
 
     public static List<Component> createStatLore(ItemGenerationContext context)
@@ -57,17 +57,19 @@ public class ItemGenerator {
 
         for (Stat stat : Stat.values())
         {
-            components.add(createStatLine(instance, player, inDungeon));
+            if (instance.getStat(stat, player, instance) != 0)
+                components.add(createStatLine(stat, instance, player, inDungeon));
         }
     }
 
-    public static Component createStatLine(SItemInstance instance, DungeonsPlayer player, boolean inDungeon)
+    public static Component createStatLine(Stat stat, SItemInstance instance, DungeonsPlayer player, boolean inDungeon)
     {
         StringBuilder builder = new StringBuilder();
 
-        builder.append("")
-    }
+        builder.append("&7" + stat.name + ": " + (stat.isRed ? "&c" : "&a"));
 
+        double
+    }
 
     public static String createName(ItemGenerationContext context) {
         SItemInstance item = context.instance;
