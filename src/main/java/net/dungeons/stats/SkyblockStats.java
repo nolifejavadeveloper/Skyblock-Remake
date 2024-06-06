@@ -89,11 +89,11 @@ public class SkyblockStats {
         return this;
     }
 
-    public void setStat(Stat stat, double value) {
+    public SkyblockStats setStat(Stat stat, double value) {
         STAT_MAP.put(stat, value);
     }
 
-    public void addStat(Stat stat, double value) {
+    public SkyblockStats addStat(Stat stat, double value) {
         setStat(stat, STAT_MAP.get(stat) + value);
     }
 

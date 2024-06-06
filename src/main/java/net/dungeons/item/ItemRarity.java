@@ -1,5 +1,7 @@
 package net.dungeons.item;
 
+import net.dungeons.util.Stringify;
+
 public enum ItemRarity {
     COMMON('f', "COMMON", 1),
     UNCOMMON('a', "UNCOMMON", 2),

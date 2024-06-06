@@ -9,4 +9,9 @@ public class DungeonsPlayer {
     * SkyblockLevels (int = xp)
     * Rank
     * */
+
+    public double getHealth()
+    {
+        return 501;
+    }
 }
