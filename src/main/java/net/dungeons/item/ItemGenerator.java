@@ -1,5 +1,6 @@
 package net.dungeons.item;
 
+import net.dungeons.item.stars.StarService;
 import net.dungeons.player.DungeonsPlayer;
 import net.dungeons.stats.SkyblockStats;
 import net.dungeons.util.Stringify;
@@ -29,7 +30,20 @@ public class ItemGenerator {
 
         String name = Stringify.formatString("&" + item.getItemRarity(context.player, item).color);
 
-        name += item.get
+        if (item.reforge != null)
+        {
+            name += item.reforge.getReforgeName() + " ";
+        }
+
+        name += item.getItemName(context.player, context.instance);
+
+        //stars
+        if (context.instance.stars >= 1)
+        {
+            name += " " + StarService.getStarString(item.stars);
+        }
+
+        return name;
     }
 
 

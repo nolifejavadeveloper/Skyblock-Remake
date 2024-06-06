@@ -35,7 +35,7 @@ public class WoodenSword implements SItem {
 
         //if the player has above 500 health, we will add 500 damage to the sword on top of the base!
         if (player.getHealth() >= 500)
-            return use.stats.addStat(Stat.DAMAGE, 500);
+            return use.stats.copy().addStat(Stat.DAMAGE, 500);
 
         //return the base stats of the instance item
         return use.stats;

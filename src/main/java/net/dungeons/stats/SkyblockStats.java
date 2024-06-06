@@ -3,7 +3,7 @@ package net.dungeons.stats;
 import java.util.HashMap;
 
 public class SkyblockStats {
-    private HashMap<Stat, Double> STAT_MAP = new HashMap<>(Stat.values().length);
+    private final HashMap<Stat, Double> STAT_MAP = new HashMap<>(Stat.values().length);
     public SkyblockStats() {
         for (Stat stat : Stat.values())
         {
@@ -91,6 +91,8 @@ public class SkyblockStats {
 
     public SkyblockStats setStat(Stat stat, double value) {
         STAT_MAP.put(stat, value);
+
+        return this;
     }
 
     public SkyblockStats addStat(Stat stat, double value) {
@@ -103,5 +105,17 @@ public class SkyblockStats {
         }
 
         return this;
+    }
+
+    public SkyblockStats copy()
+    {
+        SkyblockStats stats = new SkyblockStats();
+
+        for (Stat stat : Stat.values())
+        {
+            stats.setStat(stat, this.getStat(stat));
+        }
+
+        return stats;
     }
 }
