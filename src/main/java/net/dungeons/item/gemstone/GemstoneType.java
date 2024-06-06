@@ -19,6 +19,4 @@ public enum GemstoneType {
     public double getStatBonusByQuality(GemstoneQuality gemstoneQuality) {
         return values[gemstoneQuality.index];
     }
-
-
 }

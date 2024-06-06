@@ -19,4 +19,14 @@ public enum GemstoneSlotType {
         this.applicableGemstones = applicableGemstones;
     }
 
+    public boolean isApplicable(Gemstone gemstone)
+    {
+        for (int i = 0; i < applicableGemstones.length; i++)
+        {
+            if (gemstone.getType() == applicableGemstones[i])
+                return true;
+        }
+
+        return false;
+    }
 }

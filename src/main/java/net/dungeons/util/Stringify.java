@@ -1,6 +1,7 @@
 package net.dungeons.util;
 
 import com.google.common.collect.Lists;
+import net.kyori.adventure.text.Component;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,5 +23,10 @@ public class Stringify {
         }
 
         return list;
+    }
+
+    public static Component create(String line)
+    {
+        return Component.text(formatString(line));
     }
 }

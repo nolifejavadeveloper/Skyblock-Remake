@@ -1,5 +1,9 @@
 package net.dungeons.player;
 
+import net.dungeons.world.SLocation;
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
+
 public class DungeonsPlayer {
     /*
     * HashMap to <UUID, DungeonsPlayer> to store data, static final is best
@@ -9,9 +13,37 @@ public class DungeonsPlayer {
     * SkyblockLevels (int = xp)
     * Rank
     * */
-
-    public double getHealth()
+    //fields
+    private SLocation location;
+    private Player player;
+    public DungeonsPlayer(Player player)
     {
-        return 501;
+        this.location = SLocation.getDefault();
+        this.player = player;
+    }
+
+    public SLocation getLocation()
+    {
+        return this.location;
+    }
+
+    public void setLocation(SLocation location)
+    {
+        this.location = location;
+    }
+
+    public Location getPosition()
+    {
+        return this.player.getLocation();
+    }
+
+    public void setPosition(Location location)
+    {
+        this.player.teleport(location);
+    }
+
+    public Player getPlayer()
+    {
+        return this.player;
     }
 }

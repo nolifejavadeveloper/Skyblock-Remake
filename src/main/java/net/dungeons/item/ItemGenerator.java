@@ -3,7 +3,9 @@ package net.dungeons.item;
 import net.dungeons.item.stars.StarService;
 import net.dungeons.player.DungeonsPlayer;
 import net.dungeons.stats.SkyblockStats;
+import net.dungeons.stats.Stat;
 import net.dungeons.util.Stringify;
+import net.dungeons.world.SLocation;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -33,9 +35,37 @@ public class ItemGenerator {
 
     public static List<Component> createLore(ItemGenerationContext context)
     {
+        SItemInstance instance = context.instance;
+        DungeonsPlayer player = context.player;
         List<Component> components = new ArrayList<>();
 
+        if (instance.isDungeonized(player, null))
+        {
+            components.add(Stringify.create("&6Gear Score: &d" + GearScore.getGearScore(instance, player)));
+        }
 
+        components.addAll()
+    }
+
+    public static List<Component> createStatLore(ItemGenerationContext context)
+    {
+        SItemInstance instance = context.instance;
+        DungeonsPlayer player = context.player;
+        List<Component> components = new ArrayList<>();
+
+        boolean inDungeon = player.getLocation() == SLocation.DUNGEON;
+
+        for (Stat stat : Stat.values())
+        {
+            components.add(createStatLine(instance, player, inDungeon));
+        }
+    }
+
+    public static Component createStatLine(SItemInstance instance, DungeonsPlayer player, boolean inDungeon)
+    {
+        StringBuilder builder = new StringBuilder();
+
+        builder.append("")
     }
 
 
@@ -52,7 +82,7 @@ public class ItemGenerator {
         name += item.getItemName(context.player, context.instance);
 
         //stars
-        if (context.instance.stars >= 1)
+        if (context.instance.stars >= 1 && context.instance.isDungeonized(context.player, null))
         {
             name += " " + StarService.getStarString(item.stars);
         }
