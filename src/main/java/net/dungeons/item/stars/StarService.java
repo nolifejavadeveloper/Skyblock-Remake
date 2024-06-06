@@ -16,6 +16,8 @@ public class StarService {
                     star += Stringify.formatString("&6");
                 star += "✪";
             }
+
+            return star;
         }
         else
         {

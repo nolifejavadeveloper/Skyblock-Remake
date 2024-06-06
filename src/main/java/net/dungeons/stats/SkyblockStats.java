@@ -97,6 +97,8 @@ public class SkyblockStats {
 
     public SkyblockStats addStat(Stat stat, double value) {
         setStat(stat, STAT_MAP.get(stat) + value);
+
+        return this;
     }
 
     public SkyblockStats add(SkyblockStats stats) {

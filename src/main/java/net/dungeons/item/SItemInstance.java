@@ -1,5 +1,6 @@
 package net.dungeons.item;
 
+import net.dungeons.item.ability.SAbility;
 import net.dungeons.item.enchant.Enchantment;
 import net.dungeons.player.DungeonsPlayer;
 import net.dungeons.reforge.IReforge;
@@ -26,6 +27,7 @@ public class SItemInstance implements SItem {
     public UUID uuid;
     public byte stars;
     public List<Enchantment> enchantments;
+    public SItemModifier itemModifier;
 
 
     @Override
@@ -104,7 +106,17 @@ public class SItemInstance implements SItem {
     }
 
     @Override
+    public List<SAbility> getAbilities(DungeonsPlayer player, SItemInstance use) {
+        return this.baseItem.getAbilities(player, this);
+    }
+
+    @Override
     public List<Enchantment> getEnchantments(DungeonsPlayer player, SItemInstance use) {
         return this.baseItem.getEnchantments(player, this);
+    }
+
+    @Override
+    public SItemModifier getItemModifier(DungeonsPlayer player, SItemInstance use) {
+        return this.baseItem.getItemModifier(player, this);
     }
 }

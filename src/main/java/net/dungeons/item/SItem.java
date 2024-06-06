@@ -1,5 +1,6 @@
 package net.dungeons.item;
 
+import net.dungeons.item.ability.SAbility;
 import net.dungeons.item.enchant.Enchantment;
 import net.dungeons.player.DungeonsPlayer;
 import net.dungeons.reforge.IReforge;
@@ -30,5 +31,7 @@ public interface SItem extends Serializable {
     boolean isUnique(SItemInstance use);
     UUID getUUID();
     byte getStars(DungeonsPlayer player, SItemInstance use);
+    List<SAbility> getAbilities(DungeonsPlayer player, SItemInstance use);
     List<Enchantment> getEnchantments(DungeonsPlayer player, SItemInstance use);
+    SItemModifier getItemModifier(DungeonsPlayer player, SItemInstance use);
 }

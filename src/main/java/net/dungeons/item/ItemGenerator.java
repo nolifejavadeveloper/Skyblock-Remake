@@ -4,6 +4,7 @@ import net.dungeons.item.stars.StarService;
 import net.dungeons.player.DungeonsPlayer;
 import net.dungeons.stats.SkyblockStats;
 import net.dungeons.util.Stringify;
+import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -21,6 +22,19 @@ public class ItemGenerator {
         ItemMeta meta = item.getItemMeta();
 
         //Work on ItemName first.
+
+        String itemName = createName(context);
+
+        meta.displayName(Component.text(itemName));
+        meta.lore(createLore(context));
+
+        return item;
+    }
+
+    public static List<Component> createLore(ItemGenerationContext context)
+    {
+        List<Component> components = new ArrayList<>();
+
 
     }
 

@@ -4,6 +4,8 @@ import com.google.common.collect.Lists;
 import net.dungeons.item.ItemRarity;
 import net.dungeons.item.SItem;
 import net.dungeons.item.SItemInstance;
+import net.dungeons.item.SItemModifier;
+import net.dungeons.item.ability.SAbility;
 import net.dungeons.item.enchant.Enchantment;
 import net.dungeons.item.enchant.impl.SharpnessEnchant;
 import net.dungeons.player.DungeonsPlayer;
@@ -127,9 +129,21 @@ public class WoodenSword implements SItem {
     }
 
     @Override
+    public List<SAbility> getAbilities(DungeonsPlayer player, SItemInstance use) {
+        return null;
+    }
+
+    @Override
     public List<Enchantment> getEnchantments(DungeonsPlayer player, SItemInstance use) {
         if (use == null)
             return Arrays.asList(new SharpnessEnchant(7));
         return use.enchantments;
+    }
+
+    @Override
+    public SItemModifier getItemModifier(DungeonsPlayer player, SItemInstance use) {
+        if (use == null)
+            return new SItemModifier();
+        return use.itemModifier;
     }
 }
