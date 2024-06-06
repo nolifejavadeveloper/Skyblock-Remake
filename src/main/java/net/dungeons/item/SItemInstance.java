@@ -30,7 +30,7 @@ public class SItemInstance implements SItem {
 
     @Override
     public double getStat(Stat stat, DungeonsPlayer player, SItemInstance use) {
-        return this.getStats(player, use).getStat(stat);
+        return this.getStats(player, this).getStat(stat);
     }
 
     @Override
