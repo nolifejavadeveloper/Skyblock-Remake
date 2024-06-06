@@ -5,7 +5,10 @@ import java.util.HashMap;
 public class SkyblockStats {
     private HashMap<Stat, Double> STAT_MAP = new HashMap<>(Stat.values().length);
     public SkyblockStats() {
-
+        for (Stat stat : Stat.values())
+        {
+            STAT_MAP.put(stat, 0d);
+        }
     }
 
     public double getStat(Stat stat) {
