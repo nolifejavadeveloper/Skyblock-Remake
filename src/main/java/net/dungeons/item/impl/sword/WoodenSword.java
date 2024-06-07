@@ -1,13 +1,13 @@
 package net.dungeons.item.impl.sword;
 
 import com.google.common.collect.Lists;
-import net.dungeons.item.ItemRarity;
-import net.dungeons.item.SItem;
-import net.dungeons.item.SItemInstance;
-import net.dungeons.item.SItemModifier;
+import net.dungeons.item.*;
 import net.dungeons.item.ability.SAbility;
 import net.dungeons.item.enchant.Enchantment;
 import net.dungeons.item.enchant.impl.SharpnessEnchant;
+import net.dungeons.item.gemstone.Gemstone;
+import net.dungeons.item.gemstone.GemstoneSlot;
+import net.dungeons.item.gemstone.GemstoneSlotType;
 import net.dungeons.player.DungeonsPlayer;
 import net.dungeons.reforge.IReforge;
 import net.dungeons.stats.SkyblockStats;
@@ -36,7 +36,7 @@ public class WoodenSword implements SItem {
                     .setStrength(185);
 
         //if the player has above 500 health, we will add 500 damage to the sword on top of the base!
-        if (player.getHealth() >= 500)
+        if (true)
             return use.stats.copy().addStat(Stat.DAMAGE, 500);
 
         //return the base stats of the instance item
@@ -98,7 +98,7 @@ public class WoodenSword implements SItem {
     @Override
     public List<String> getDescription(DungeonsPlayer player, SItemInstance use) {
         return Stringify.createLore(
-                "&7Your Health: &c" + player.getHealth()
+                "&7Your Health: &c" + 497.5d
         );
     }
 
@@ -114,6 +114,13 @@ public class WoodenSword implements SItem {
         if (use == null)
             return true;
         return use.unique;
+    }
+
+    @Override
+    public SItemType getItemType(DungeonsPlayer player, SItemInstance use) {
+        if (use == null)
+            return SItemType.SWORD;
+        return use.itemType;
     }
 
     @Override
@@ -145,5 +152,14 @@ public class WoodenSword implements SItem {
         if (use == null)
             return new SItemModifier();
         return use.itemModifier;
+    }
+
+    @Override
+    public List<GemstoneSlot> getGemstoneSlots(DungeonsPlayer player, SItemInstance use) {
+        if (use == null)
+            return Arrays.asList(new GemstoneSlot(GemstoneSlotType.COMBAT, null),
+                new GemstoneSlot(GemstoneSlotType.COMBAT, null),
+                new GemstoneSlot(GemstoneSlotType.COMBAT, null));
+        return use.gemstoneSlots;
     }
 }

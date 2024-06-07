@@ -11,11 +11,11 @@ public enum GemstoneSlotType {
     DEFENSIVE('☤', GemstoneType.RUBY, GemstoneType.AMETHYST),
     UNIVERSAL('❂', GemstoneType.RUBY, GemstoneType.AMETHYST, GemstoneType.SAPPHIRE, GemstoneType.CARNELIAN, GemstoneType.JASPER);
 
-    public final char i;
+    public final char icon;
     public final GemstoneType[] applicableGemstones;
 
-    GemstoneSlotType(char i, GemstoneType... applicableGemstones) {
-        this.i = i;
+    GemstoneSlotType(char icon, GemstoneType... applicableGemstones) {
+        this.icon = icon;
         this.applicableGemstones = applicableGemstones;
     }
 

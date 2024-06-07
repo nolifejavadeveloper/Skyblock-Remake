@@ -2,6 +2,7 @@ package net.dungeons.item;
 
 import net.dungeons.item.ability.SAbility;
 import net.dungeons.item.enchant.Enchantment;
+import net.dungeons.item.gemstone.GemstoneSlot;
 import net.dungeons.player.DungeonsPlayer;
 import net.dungeons.reforge.IReforge;
 import net.dungeons.stats.SkyblockStats;
@@ -28,6 +29,8 @@ public class SItemInstance implements SItem {
     public byte stars;
     public List<Enchantment> enchantments;
     public SItemModifier itemModifier;
+    public List<GemstoneSlot> gemstoneSlots;
+    public SItemType itemType;
 
 
     @Override
@@ -96,6 +99,11 @@ public class SItemInstance implements SItem {
     }
 
     @Override
+    public SItemType getItemType(DungeonsPlayer player, SItemInstance use) {
+        return baseItem.getItemType(player, this);
+    }
+
+    @Override
     public UUID getUUID() {
         return this.uuid;
     }
@@ -118,5 +126,10 @@ public class SItemInstance implements SItem {
     @Override
     public SItemModifier getItemModifier(DungeonsPlayer player, SItemInstance use) {
         return this.baseItem.getItemModifier(player, this);
+    }
+
+    @Override
+    public List<GemstoneSlot> getGemstoneSlots(DungeonsPlayer player, SItemInstance use) {
+        return this.baseItem.getGemstoneSlots(player, this);
     }
 }

@@ -28,4 +28,9 @@ public class Gemstone {
     {
         this.type = type;
     }
+
+    public double getBoost()
+    {
+        return type.getStatBonusByQuality(quality);
+    }
 }

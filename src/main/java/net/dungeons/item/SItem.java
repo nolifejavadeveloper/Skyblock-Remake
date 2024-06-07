@@ -2,6 +2,7 @@ package net.dungeons.item;
 
 import net.dungeons.item.ability.SAbility;
 import net.dungeons.item.enchant.Enchantment;
+import net.dungeons.item.gemstone.GemstoneSlot;
 import net.dungeons.player.DungeonsPlayer;
 import net.dungeons.reforge.IReforge;
 import net.dungeons.stats.SkyblockStats;
@@ -29,9 +30,11 @@ public interface SItem extends Serializable {
     List<String> getDescription(DungeonsPlayer player, SItemInstance use);
     String getItemName(DungeonsPlayer player, SItemInstance use);
     boolean isUnique(SItemInstance use);
+    SItemType getItemType(DungeonsPlayer player, SItemInstance use);
     UUID getUUID();
     byte getStars(DungeonsPlayer player, SItemInstance use);
     List<SAbility> getAbilities(DungeonsPlayer player, SItemInstance use);
     List<Enchantment> getEnchantments(DungeonsPlayer player, SItemInstance use);
     SItemModifier getItemModifier(DungeonsPlayer player, SItemInstance use);
+    List<GemstoneSlot> getGemstoneSlots(DungeonsPlayer player, SItemInstance use);
 }
