@@ -1,6 +1,8 @@
 package net.dungeons.item;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 public class SkyblockItem extends ItemStack {
@@ -18,6 +20,8 @@ public class SkyblockItem extends ItemStack {
 
     public void setSkyblockItem(SItemInstance instance)
     {
+        Player p = Bukkit.getPlayer("a");
+
         this.item = instance;
     }
 

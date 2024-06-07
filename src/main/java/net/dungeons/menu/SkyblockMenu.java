@@ -37,10 +37,11 @@ public class SkyblockMenu {
         ItemStack skyblockProfile = new ItemStack(Material.PLAYER_HEAD);
         ItemMeta skyblockProfileMeta = skyblockProfile.getItemMeta();
         skyblockProfileMeta.displayName(Stringify.create("&aYour Skyblock Profile"));
-        List<Component> skyblockProfileLore = Stringify.createList("&7View your equipments, stats,", "&7 and more!", "");
+        List<Component> skyblockProfileLore = Stringify.createList("&7View your equipments, stats,", "&7and more!", "");
         for (Stat stat : Stat.values()) {
             skyblockProfileLore.add(Stringify.create(createStatLine(stats.getStat(stat), stat)));
         }
+        skyblockProfileLore.add(Component.text(""));
         skyblockProfileLore.add(Stringify.create("&eClick to view!"));
 
         skyblockProfileMeta.lore(skyblockProfileLore);
@@ -59,7 +60,7 @@ public class SkyblockMenu {
     }
 
     private static String createStatLine(double value, Stat stat) {
-        return "&" + stat.color + stat.icon + " " + stat.name + " " + "&f " + value + (stat.percent ? "%" : "");
+        return "&" + stat.color + stat.icon + " " + stat.name + " " + "&f" + value + (stat.percent ? "%" : "");
     }
 
     private static void makeBackground(Inventory inv) {
