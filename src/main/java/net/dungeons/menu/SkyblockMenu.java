@@ -45,6 +45,8 @@ public class SkyblockMenu {
 
         skyblockProfileMeta.lore(skyblockProfileLore);
         skyblockProfile.setItemMeta(skyblockProfileMeta);
+
+        menu.setItem(14, skyblockProfile);
         //Skyblock Profile Item
 
 
