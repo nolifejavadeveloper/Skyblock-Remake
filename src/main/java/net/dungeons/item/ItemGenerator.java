@@ -8,6 +8,8 @@ import net.dungeons.stats.Stat;
 import net.dungeons.util.Stringify;
 import net.dungeons.world.SLocation;
 import net.kyori.adventure.text.Component;
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -24,6 +26,9 @@ public class ItemGenerator {
         item.setSkyblockItem(sitem);
 
         ItemMeta meta = item.getItemMeta();
+
+        if (meta == null)
+            meta = Bukkit.getItemFactory().getItemMeta(Material.DIAMOND_SWORD);
 
         //Work on ItemName first.
 

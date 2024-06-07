@@ -30,10 +30,10 @@ public class DungeonsPlayer {
     private MiningSkill miningSkill;
     private TamingSkill tamingSkill;
 
-    public DungeonsPlayer(Player player, SkyblockStats stats) {
+    public DungeonsPlayer(Player player) {
         this.location = SLocation.getDefault();
         this.player = player;
-        this.stats = stats;
+        this.stats = new SkyblockStats();
     }
 
     public SLocation getLocation()
@@ -103,5 +103,16 @@ public class DungeonsPlayer {
 
     public TamingSkill getTamingSkill() {
         return tamingSkill;
+    }
+
+    //load
+    public void load()
+    {
+
+    }
+
+    public void save()
+    {
+
     }
 }

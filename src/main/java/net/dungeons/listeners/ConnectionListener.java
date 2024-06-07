@@ -1,5 +1,7 @@
 package net.dungeons.listeners;
 
+import net.dungeons.manager.DungeonPlayerManager;
+import net.dungeons.player.DungeonsPlayer;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
@@ -15,7 +17,9 @@ public class ConnectionListener implements Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
+        DungeonsPlayer player = DungeonPlayerManager.add(e.getPlayer());
 
+        player.load();
     }
 
 }

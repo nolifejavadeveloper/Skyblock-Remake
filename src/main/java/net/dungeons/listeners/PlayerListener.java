@@ -6,6 +6,7 @@ import net.dungeons.item.SItemFactory;
 import net.dungeons.item.SkyblockItem;
 import net.dungeons.manager.DungeonPlayerManager;
 import net.dungeons.player.DungeonsPlayer;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -17,10 +18,10 @@ public class PlayerListener implements Listener {
     {
         for (Player player1 : Dungeons.getPlugin().getServer().getOnlinePlayers())
         {
-            ItemStack item = player1.getActiveItem();
+            ItemStack item = player1.getInventory().getItemInMainHand();
             DungeonsPlayer player = DungeonPlayerManager.getByPlayer(player1);
 
-            if (item == null)
+            if (item == null || item.getType() == Material.AIR)
                 continue;
 
             if (!(item instanceof SkyblockItem))

@@ -25,4 +25,13 @@ public class DungeonPlayerManager {
         players.remove(uuid);
     }
 
+    public static DungeonsPlayer add(Player player)
+    {
+        DungeonsPlayer p = new DungeonsPlayer(player);
+
+        players.put(player.getUniqueId(), p);
+
+        return p;
+    }
+
 }

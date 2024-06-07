@@ -32,7 +32,7 @@ public class SItemBasic implements SItem {
 
     @Override
     public SkyblockStats getStats(DungeonsPlayer player, SItemInstance use) {
-        return null;
+        return new SkyblockStats();
     }
 
     @Override
