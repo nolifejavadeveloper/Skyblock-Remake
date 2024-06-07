@@ -1,11 +1,9 @@
 package net.dungeons.item.impl.sword;
 
-import com.google.common.collect.Lists;
 import net.dungeons.item.*;
 import net.dungeons.item.ability.SAbility;
 import net.dungeons.item.enchant.Enchantment;
 import net.dungeons.item.enchant.impl.SharpnessEnchant;
-import net.dungeons.item.gemstone.Gemstone;
 import net.dungeons.item.gemstone.GemstoneSlot;
 import net.dungeons.item.gemstone.GemstoneSlotType;
 import net.dungeons.player.DungeonsPlayer;

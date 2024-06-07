@@ -2,3 +2,9 @@ name: Dungeons
 version: '${project.version}'
 main: net.dungeons.dungeons.Dungeons
 api-version: '1.17'
+
+commands:
+  skyblock:
+    description: wtf
+  sbmenu:
+    description: other test

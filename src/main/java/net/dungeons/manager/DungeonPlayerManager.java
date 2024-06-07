@@ -1,6 +1,7 @@
 package net.dungeons.manager;
 
 import net.dungeons.player.DungeonsPlayer;
+import org.bukkit.entity.Player;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,6 +15,7 @@ public class DungeonPlayerManager {
     public static DungeonsPlayer getByUUID(UUID u) {
         return players.get(u);
     }
+    public static DungeonsPlayer getByPlayer(Player player) {return getByUUID(player.getUniqueId());}
 
     public static void set(UUID uuid, DungeonsPlayer player) {
         players.put(uuid, player);

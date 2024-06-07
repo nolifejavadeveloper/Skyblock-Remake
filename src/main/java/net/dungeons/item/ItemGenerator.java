@@ -4,12 +4,10 @@ import net.dungeons.item.gemstone.GemstoneSlot;
 import net.dungeons.item.stars.StarService;
 import net.dungeons.player.DungeonsPlayer;
 import net.dungeons.reforge.IReforge;
-import net.dungeons.stats.SkyblockStats;
 import net.dungeons.stats.Stat;
 import net.dungeons.util.Stringify;
 import net.dungeons.world.SLocation;
 import net.kyori.adventure.text.Component;
-import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -17,12 +15,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ItemGenerator {
-    public static ItemStack generateItem(ItemGenerationContext context) {
+    public static SkyblockItem generateItem(ItemGenerationContext context) {
 
         SItemInstance sitem = context.instance;
         DungeonsPlayer player = context.player;
 
-        ItemStack item = new ItemStack(sitem.getMaterial(player, null), sitem.getCount(player, null));
+        SkyblockItem item = new SkyblockItem(sitem);
+        item.setSkyblockItem(sitem);
+
         ItemMeta meta = item.getItemMeta();
 
         //Work on ItemName first.
@@ -40,7 +40,7 @@ public class ItemGenerator {
         return item;
     }
 
-    public static ItemStack generateItem(SItem item, DungeonsPlayer player)
+    public static SkyblockItem generateItem(SItem item, DungeonsPlayer player)
     {
         ItemGenerationContext context = new ItemGenerationContext();
 
@@ -209,9 +209,4 @@ public class ItemGenerator {
 
         return name;
     }
-
-
-
-
-
 }

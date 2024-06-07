@@ -10,11 +10,10 @@ import net.dungeons.stats.Stat;
 import org.bukkit.Color;
 import org.bukkit.Material;
 
-import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
 
-public interface SItem extends Serializable {
+public interface SItem {
     //**stats**
     double getStat(Stat stat, DungeonsPlayer player, SItemInstance use);
     SkyblockStats getStats(DungeonsPlayer player, SItemInstance use);

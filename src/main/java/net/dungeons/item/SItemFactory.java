@@ -1,6 +1,8 @@
 package net.dungeons.item;
 
 import net.dungeons.player.DungeonsPlayer;
+import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
 
 public class SItemFactory {
     public static SItemInstance createInstance(SItem item, DungeonsPlayer player)
@@ -28,5 +30,21 @@ public class SItemFactory {
         //misc
 
         return instance;
+    }
+
+    public static SkyblockItem convertItemToSkyblock(ItemStack itemOriginal, DungeonsPlayer player)
+    {
+        Material material = itemOriginal.getType();
+
+        SItem item = SItemRegistry.getSItem(material.name());
+
+        if (item == null)
+            return null;
+
+        SItemInstance instance = createInstance(item, player);
+
+        instance.count = itemOriginal.getAmount();
+
+        return ItemGenerator.generateItem(item, player);
     }
 }
