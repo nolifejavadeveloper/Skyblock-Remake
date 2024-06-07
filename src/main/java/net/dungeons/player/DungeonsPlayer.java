@@ -1,5 +1,7 @@
 package net.dungeons.player;
 
+import net.dungeons.skills.impl.*;
+import net.dungeons.stats.SkyblockStats;
 import net.dungeons.world.SLocation;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -15,11 +17,23 @@ public class DungeonsPlayer {
     * */
     //fields
     private SLocation location;
-    private Player player;
-    public DungeonsPlayer(Player player)
-    {
+    private final Player player;
+    private SkyblockStats stats;
+    private DungeonSkill dungeonSkill;
+    private AlchemySkill alchemySkill;
+    private CarpentrySkill carpentrySkill;
+    private CombatSkill combatSkill;
+    private EnchantingSkill enchantingSkill;
+    private FarmingSkill farmingSkill;
+    private FishingSkill fishingSkill;
+    private ForagingSkill foragingSkill;
+    private MiningSkill miningSkill;
+    private TamingSkill tamingSkill;
+
+    public DungeonsPlayer(Player player, SkyblockStats stats) {
         this.location = SLocation.getDefault();
         this.player = player;
+        this.stats = stats;
     }
 
     public SLocation getLocation()
@@ -45,5 +59,49 @@ public class DungeonsPlayer {
     public Player getPlayer()
     {
         return this.player;
+    }
+
+    public SkyblockStats getStats() {
+        return stats;
+    }
+
+    public DungeonSkill getDungeonSkill() {
+        return dungeonSkill;
+    }
+
+    public AlchemySkill getAlchemySkill() {
+        return alchemySkill;
+    }
+
+    public CarpentrySkill getCarpentrySkill() {
+        return carpentrySkill;
+    }
+
+    public CombatSkill getCombatSkill() {
+        return combatSkill;
+    }
+
+    public EnchantingSkill getEnchantingSkill() {
+        return enchantingSkill;
+    }
+
+    public FarmingSkill getFarmingSkill() {
+        return farmingSkill;
+    }
+
+    public FishingSkill getFishingSkill() {
+        return fishingSkill;
+    }
+
+    public ForagingSkill getForagingSkill() {
+        return foragingSkill;
+    }
+
+    public MiningSkill getMiningSkill() {
+        return miningSkill;
+    }
+
+    public TamingSkill getTamingSkill() {
+        return tamingSkill;
     }
 }

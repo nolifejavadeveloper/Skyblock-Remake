@@ -29,4 +29,12 @@ public class Stringify {
     {
         return Component.text(formatString(line));
     }
+    public static List<Component> createList(String... lore) {
+        List<Component> list = new ArrayList<>(lore.length);
+        for (String str : lore) {
+            list.add(Component.text(formatString(str)));
+        }
+
+        return list;
+    }
 }
